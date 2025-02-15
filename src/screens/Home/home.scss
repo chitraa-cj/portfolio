@@ -1,0 +1,109 @@
+
+  .explore-btn {
+    background-color: #030135; /* Dark Blue Background */
+    position: relative;
+    overflow: hidden;
+    font-weight: bold;
+    font-size: 16px;
+    color: rgb(235, 209, 252); /* Light Purple Text */
+    border: 2px solid rgb(235, 209, 252); /* Light Purple Border */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  
+    &:hover {
+      background-color: rgb(235, 209, 252); /* Light Purple Background */
+      color: #030135; /* Text switches to Dark Blue */
+      transform: translateY(-2px); /* Subtle Lift */
+    }
+  
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(235, 209, 252, 0.5); /* Semi-transparent Bubble */
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease, width 0.5s ease, height 0.5s ease;
+    }
+  
+    &:hover::before {
+      width: 300px; /* Bubble Size */
+      height: 300px;
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  .home-container {
+    position: relative;
+    overflow: hidden;
+  
+    .mouse-line {
+      position: absolute;
+      width: 16px; // Adjust brush size
+      height: 16px;
+      border-radius: 50%;
+      background: red; // Will be dynamically overridden
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); // Smooth glow effect
+      transform: translate(-50%, -50%);
+      animation: fadeOut 1s forwards; // Smooth fade-out effect
+    }
+  }
+  
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  // Sparkle effect (optional)
+  @keyframes sparkle {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-sparkle {
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      background: rgba(255, 255, 255, 0.5);
+      animation: sparkle 2s linear infinite;
+    }
+    
+    &::before {
+      top: 10%;
+      left: 20%;
+      width: 15px;
+      height: 15px;
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    }
+    
+    &::after {
+      top: 60%;
+      right: 15%;
+      width: 20px;
+      height: 20px;
+      animation-delay: 0.5s;
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    }
+  }

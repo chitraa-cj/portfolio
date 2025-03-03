@@ -40,26 +40,26 @@ export function TabsDemo() {
         </div>
       ),
     },
-    {
-      title: "Creating Vector Art",
-      value: "Creating Vector Art",
-      content: (
-        <div className="w-full overflow-auto relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
-          <p>Creating Vector Art</p>
-          <DummyContent />
-        </div>
-      ),
-    },
-    {
-      title: "Exploring Food and Cities",
-      value: "Exploring Food and Cities",
-      content: (
-        <div className="w-full overflow-auto relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
-          <p>Exploring Food and Cities</p>
-          <DummyContent />
-        </div>
-      ),
-    },
+    // {
+    //   title: "Creating Vector Art",
+    //   value: "Creating Vector Art",
+    //   content: (
+    //     <div className="w-full overflow-auto relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
+    //       <p>Creating Vector Art</p>
+    //       <DummyContent />
+    //     </div>
+    //   ),
+    // },
+    // {
+    //   title: "Exploring Food and Cities",
+    //   value: "Exploring Food and Cities",
+    //   content: (
+    //     <div className="w-full overflow-auto relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
+    //       <p>Exploring Food and Cities</p>
+    //       <DummyContent />
+    //     </div>
+    //   ),
+    // },
   ];
 
   return (

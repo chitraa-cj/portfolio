@@ -1,33 +1,83 @@
-"use client";
-import React from "react";
-import { Image } from "antd";
-import { twMerge } from "tailwind-merge";
-import { TracingBeam } from "./beam";
+/* 
+  Main Keywords (Displayed on the page):
+  - "use client"
+  - React
+  - antd
+  - tailwind-merge
+  - TracingBeam
+  - InternshipItem
+  - TracingBeamDemo
+  - internshipContent
+*/
 
+"use client"; // Client-side directive
+
+import React from "react"; // KEYWORD: React
+import { Image } from "antd"; // KEYWORD: antd (Image component)
+import { twMerge } from "tailwind-merge"; // KEYWORD: tailwind-merge
+import { TracingBeam } from "./beam"; // KEYWORD: TracingBeam (custom component)
+
+// Define the structure for each internship item
+interface InternshipItem {
+  title: string;
+  description: JSX.Element;
+  badge: string;
+  image?: string; // Optional property for an image URL
+}
+
+// Main component that renders the internship content along with a keywords section
 export function TracingBeamDemo() {
+  // Array of main keywords to display
+  const mainKeywords = [
+    'Tradeons - 20 Bugs Fixed',
+    "15+ features and 50,000 data records preprocessed",
+    "Awareness of Cyber Attacks",
+    "Youngets Employee",
+    "Graphics Team Head",
+    "Taught Mathematics and Science",
+  ];
+
   return (
     <TracingBeam className="px-6">
       <div className="max-w-2xl mx-auto antialiased pt-4 relative">
-        {dummyContent.map((item, index) => (
+        {/* Main Keywords Section */}
+        <div className="mb-8 p-4 border rounded bg-gray-100">
+          <h1 className="text-xl font-bold mb-2">Main Keywords</h1>
+          <ul className="list-disc pl-5">
+            {mainKeywords.map((keyword, idx) => (
+              <li
+                key={idx}
+                className="bg-yellow-300 text-black font-bold inline-block px-1 rounded mr-2 mb-1"
+              >
+                {keyword}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Internship Content */}
+        {internshipContent.map((item, index) => (
           <div key={`content-${index}`} className="mb-10">
+            {/* Display the badge */}
             <h2 className="bg-black text-white rounded-full text-sm w-fit px-4 py-1 mb-4">
               {item.badge}
             </h2>
 
-            <p className={twMerge( "text-xl mb-4")}>
-              {item.title}
-            </p>
+            {/* Display the title */}
+            <p className={twMerge("text-xl mb-4")}>{item.title}</p>
 
-            <div className="text-sm  prose prose-sm dark:prose-invert">
-              {item?.image && (
+            <div className="text-sm prose prose-sm dark:prose-invert">
+              {/* Render the image if provided */}
+              {item.image && (
                 <Image
                   src={item.image}
-                  alt="blog thumbnail"
+                  alt={`${item.title} thumbnail`}
                   height="1000"
                   width="1000"
                   className="rounded-lg mb-10 object-cover"
                 />
               )}
+              {/* Render the description */}
               {item.description}
             </div>
           </div>
@@ -37,80 +87,137 @@ export function TracingBeamDemo() {
   );
 }
 
-const dummyContent = [
+// Internship content details with dates highlighted using custom styling
+const internshipContent: InternshipItem[] = [
   {
-    title: "Lorem Ipsum Dolor Sit Amet",
+    title: "Facillima Software Private Limited",
     description: (
       <>
         <p>
-          Sit duis est minim proident non nisi velit non consectetur. Esse
-          adipisicing laboris consectetur enim ipsum reprehenderit eu deserunt
-          Lorem ut aliqua anim do. Duis cupidatat qui irure cupidatat incididunt
-          incididunt enim magna id est qui sunt fugiat. Laboris do duis pariatur
-          fugiat Lorem aute sit ullamco. Qui deserunt non reprehenderit dolore
-          nisi velit exercitation Lorem qui do enim culpa. Aliqua eiusmod in
-          occaecat reprehenderit laborum nostrud fugiat voluptate do Lorem culpa
-          officia sint labore. Tempor consectetur excepteur ut fugiat veniam
-          commodo et labore dolore commodo pariatur.
+          Ghaziabad, Uttar Pradesh |{" "}
+          <span className="bg-yellow-300 text-black font-bold px-1 rounded">
+            March 2024 – Sep 2024
+          </span>
         </p>
         <p>
-          Dolor minim irure ut Lorem proident. Ipsum do pariatur est ad ad
-          veniam in commodo id reprehenderit adipisicing. Proident duis
-          exercitation ad quis ex cupidatat cupidatat occaecat adipisicing.
+          ◦ Identified and corrected over 20 website bugs affecting user
+          experience on Apple devices, improving the interface.
         </p>
         <p>
-          Tempor quis dolor veniam quis dolor. Sit reprehenderit eiusmod
-          reprehenderit deserunt amet laborum consequat adipisicing officia qui
-          irure id sint adipisicing. Adipisicing fugiat aliqua nulla nostrud.
-          Amet culpa officia aliquip deserunt veniam deserunt officia
-          adipisicing aliquip proident officia sunt.
+          ◦ Integrated backend API calls for Bhav Copy retrieval from NSE,
+          automating stock price settlement workflows, for 1000+ customers.
         </p>
       </>
     ),
-    badge: "React",
-    image:
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=3540&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    badge: "Software Intern",
+    image: "/tradeons.png", // Placeholder URL
   },
   {
-    title: "Lorem Ipsum Dolor Sit Amet",
+    title: "Poly Infosoft",
     description: (
       <>
         <p>
-          Ex irure dolore veniam ex velit non aute nisi labore ipsum occaecat
-          deserunt cupidatat aute. Enim cillum dolor et nulla sunt exercitation
-          non voluptate qui aliquip esse tempor. Ullamco ut sunt consectetur
-          sint qui qui do do qui do. Labore laborum culpa magna reprehenderit ea
-          velit id esse adipisicing deserunt amet dolore. Ipsum occaecat veniam
-          commodo proident aliqua id ad deserunt dolor aliquip duis veniam sunt.
+          Noida, Uttar Pradesh |{" "}
+          <span className="bg-yellow-300 text-black font-bold px-1 rounded">
+            Nov 2019 – Feb 2020
+          </span>
         </p>
         <p>
-          In dolore veniam excepteur eu est et sunt velit. Ipsum sint esse
-          veniam fugiat esse qui sint ad sunt reprehenderit do qui proident
-          reprehenderit. Laborum exercitation aliqua reprehenderit ea sint
-          cillum ut mollit.
+          ◦ Conducted data analysis and engineered 15+ features for a dataset of
+          over 50,000 records, improving 7% accuracy.
+        </p>
+        <p>
+          ◦ Gained hands-on experience with production-level coding by
+          contributing to 2 Machine Learning projects.
+        </p>
+        <p>
+          ◦ Deployed the project using Heroku, increasing access efficiency by
+          15%.
         </p>
       </>
     ),
-    badge: "Changelog",
-    image:
-      "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&q=80&w=3540&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    badge: "Python ML Intern",
+    image: "/poly.png", // Placeholder URL
   },
   {
-    title: "Lorem Ipsum Dolor Sit Amet",
+    title: "Cyber Radix",
     description: (
       <>
         <p>
-          Ex irure dolore veniam ex velit non aute nisi labore ipsum occaecat
-          deserunt cupidatat aute. Enim cillum dolor et nulla sunt exercitation
-          non voluptate qui aliquip esse tempor. Ullamco ut sunt consectetur
-          sint qui qui do do qui do. Labore laborum culpa magna reprehenderit ea
-          velit id esse adipisicing deserunt amet dolore. Ipsum occaecat veniam
-          commodo proident aliqua id ad deserunt dolor aliquip duis veniam sunt.
+          <span className="bg-yellow-300 text-black font-bold px-1 rounded">
+            05/2020 - 06/2020
+          </span>
+        </p>
+        <p>
+          ◦ Studied cyber crimes, various cyber attacks, and practiced anonymity
+          and preventions.
+        </p>
+        <p>
+          ◦ Delivered 3 talk shows with Mr. Ankur Chandrakant on "Shaming Virtual
+          Reality - Online Bullying".
         </p>
       </>
     ),
-    badge: "Launch Week",
-    image:
-      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&q=80&w=3506&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    badge: "Cyber Security Intern",
+    image: "security.jpg", // Placeholder URL
+  },
+  {
+    title: "Cutloose Media",
+    description: (
+      <>
+        <p>
+          <span className="bg-yellow-300 text-black font-bold px-1 rounded">
+            08/2020 - 11/2020
+          </span>
+        </p>
+        <p>
+          ◦ Written well-researched and authentic articles on daily happenings.
+        </p>
+        <p>
+          ◦ Internship turned into a full time job, becoming the youngest
+          employee.
+        </p>
+      </>
+    ),
+    badge: "Content Writer",
+    image: "/cutloose.png", // Placeholder URL
+  },
+  {
+    title: "Youth India Foundation",
+    description: (
+      <>
+        <p>
+          <span className="bg-yellow-300 text-black font-bold px-1 rounded">
+            10/2020 - 01/2021
+          </span>
+        </p>
+        <p>
+          ◦ Designed posters for a fundraising event "Fitoor - A singing
+          competition" to donate items to those in need.
+        </p>
+        <p>
+          ◦ Worked in teams and was promoted to Graphic Team Head.
+        </p>
+      </>
+    ),
+    badge: "Graphic Team Head",
+    image: "/yif.png", // Placeholder URL
+  },
+  {
+    title: "Pratishtha Foundation",
+    description: (
+      <>
+        <p>
+          <span className="bg-yellow-300 text-black font-bold px-1 rounded">
+            04/2020 - 07/2020
+          </span>
+        </p>
+        <p>
+          ◦ Taught children Mathematics and Sciences using analogies.
+        </p>
+      </>
+    ),
+    badge: "VOLUNTEER",
+    image: "ngo.jpeg", // Placeholder URL
   },
 ];

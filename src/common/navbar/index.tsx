@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { DownOutlined, SearchOutlined } from "@ant-design/icons";
+import { SearchOutlined } from "@ant-design/icons";
 import "./index.scss";
 import { navbarData } from "./constant";
 
@@ -11,13 +11,40 @@ export default function Navbar() {
           <h1 className="text-xl font-bold">CJ</h1>
         </div>
         <ul className="flex items-center space-x-6">
-        {navbarData.map((item, index) => (
-            <li key={index} className="relative">
-              <Link to={item.link} className="nav-item">
-                {item.label}
-              </Link>
-            </li>
-          ))}
+          {navbarData.map((item, index) => {
+            const link = item.link || "#";
+
+            // If it's a download link (Resume)
+            if (item.download) {
+              return (
+                <li key={index} className="relative">
+                  <a href={link} download className="nav-item">
+                    {item.label}
+                  </a>
+                </li>
+              );
+            }
+
+            // If it's a mailto link
+            if (link.startsWith("mailto:")) {
+              return (
+                <li key={index} className="relative">
+                  <a href={link} className="nav-item">
+                    {item.label}
+                  </a>
+                </li>
+              );
+            }
+
+            // For internal navigation
+            return (
+              <li key={index} className="relative">
+                <Link to={link} className="nav-item">
+                  {item.label}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
 
         <div>

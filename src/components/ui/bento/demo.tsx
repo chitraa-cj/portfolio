@@ -3,9 +3,7 @@ import { cn } from "../../utlis";
 import React from "react";
 import { BentoGrid, BentoGridItem } from "./bento-grid";
 import {
-  IconBoxAlignRightFilled,
   IconClipboardCopy,
-  IconFileBroken,
   IconSignature,
   IconTableColumn,
 } from "@tabler/icons-react";
@@ -14,7 +12,7 @@ import { motion } from "framer-motion";
 
 export function BentoGridThirdDemo() {
   return (
-    <BentoGrid className="max-w-4xl mx-auto md:auto-rows-[20rem]">
+    <BentoGrid className="max-w-2xl ml-auto md:auto-rows-[20rem]">
       {items.map((item, i) => (
         <BentoGridItem
           key={i}
@@ -28,6 +26,8 @@ export function BentoGridThirdDemo() {
     </BentoGrid>
   );
 }
+
+
 
 const SkeletonOne = () => {
   const variants = {
@@ -85,45 +85,7 @@ const SkeletonOne = () => {
     </motion.div>
   );
 };
-const SkeletonTwo = () => {
-  const variants = {
-    initial: {
-      width: 0,
-    },
-    animate: {
-      width: "100%",
-      transition: {
-        duration: 0.2,
-      },
-    },
-    hover: {
-      width: ["0%", "100%"],
-      transition: {
-        duration: 2,
-      },
-    },
-  };
-  const arr = new Array(6).fill(0);
-  return (
-    <motion.div
-      initial="initial"
-      animate="animate"
-      whileHover="hover"
-      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2"
-    >
-      {arr.map((_, i) => (
-        <motion.div
-          key={"skelenton-two" + i}
-          variants={variants}
-          style={{
-            maxWidth: Math.random() * (100 - 40) + 40 + "%",
-          }}
-          className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2  items-center space-x-2 bg-neutral-100 dark:bg-black w-full h-4"
-        ></motion.div>
-      ))}
-    </motion.div>
-  );
-};
+
 const SkeletonThree = () => {
   const variants = {
     initial: {
@@ -194,10 +156,10 @@ const SkeletonFour = () => {
           className="rounded-full h-10 w-10"
         /> */}
         <p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">
-          Just code in Vanilla Javascript
+          Deep Learning
         </p>
         <p className="border border-red-500 bg-red-100 dark:bg-red-900/20 text-red-600 text-xs rounded-full px-2 py-0.5 mt-4">
-          Delusional
+        Mind-bending
         </p>
       </motion.div>
       <motion.div className="h-full relative z-20 w-1/3 rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center">
@@ -209,10 +171,10 @@ const SkeletonFour = () => {
           className="rounded-full h-10 w-10"
         /> */}
         <p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">
-          Tailwind CSS is cool, you know
+          Machine Learning
         </p>
         <p className="border border-green-500 bg-green-100 dark:bg-green-900/20 text-green-600 text-xs rounded-full px-2 py-0.5 mt-4">
-          Sensible
+        Ingenious
         </p>
       </motion.div>
       <motion.div
@@ -227,79 +189,22 @@ const SkeletonFour = () => {
           className="rounded-full h-10 w-10"
         /> */}
         <p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">
-          I love angular, RSC, and Redux.
+          LLMs and RAG
         </p>
         <p className="border border-orange-500 bg-orange-100 dark:bg-orange-900/20 text-orange-600 text-xs rounded-full px-2 py-0.5 mt-4">
-          Helpless
+        Trailblazing
         </p>
       </motion.div>
     </motion.div>
   );
 };
-const SkeletonFive = () => {
-  const variants = {
-    initial: {
-      x: 0,
-    },
-    animate: {
-      x: 10,
-      rotate: 5,
-      transition: {
-        duration: 0.2,
-      },
-    },
-  };
-  const variantsSecond = {
-    initial: {
-      x: 0,
-    },
-    animate: {
-      x: -10,
-      rotate: -5,
-      transition: {
-        duration: 0.2,
-      },
-    },
-  };
 
-  return (
-    <motion.div
-      initial="initial"
-      whileHover="animate"
-      className="flex flex-1 w-full h-full min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-col space-y-2"
-    >
-      <motion.div
-        variants={variants}
-        className="flex flex-row rounded-2xl border border-neutral-100 dark:border-white/[0.2] p-2  items-start space-x-2 bg-white dark:bg-black"
-      >
-        {/* <Image
-          src="https://pbs.twimg.com/profile_images/1417752099488636931/cs2R59eW_400x400.jpg"
-          alt="avatar"
-          height="100"
-          width="100"
-          className="rounded-full h-10 w-10"
-        /> */}
-        <p className="text-xs text-neutral-500">
-          There are a lot of cool framerworks out there like React, Angular,
-          Vue, Svelte that can make your life ....
-        </p>
-      </motion.div>
-      <motion.div
-        variants={variantsSecond}
-        className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2 items-center justify-end space-x-2 w-3/4 ml-auto bg-white dark:bg-black"
-      >
-        <p className="text-xs text-neutral-500">Use PHP.</p>
-        <div className="h-6 w-6 rounded-full bg-gradient-to-r from-pink-500 to-violet-500 flex-shrink-0" />
-      </motion.div>
-    </motion.div>
-  );
-};
 const items = [
   {
-    title: "AI Content Generation",
+    title: "Data Science and AI Researcher",
     description: (
       <span className="text-sm">
-        Experience the power of AI in generating unique content.
+         10+ confernces, won best paper award in 2 and Published 1 journal and 3 Book Chapter in AI, Blockchain, Cyber Security ML and DL domain.
       </span>
     ),
     header: <SkeletonOne />,
@@ -307,21 +212,10 @@ const items = [
     icon: <IconClipboardCopy className="h-4 w-4 text-neutral-500" />,
   },
   {
-    title: "Automated Proofreading",
+    title: "Web Developer",
     description: (
       <span className="text-sm">
-        Let AI handle the proofreading of your documents.
-      </span>
-    ),
-    header: <SkeletonTwo />,
-    className: "md:col-span-1",
-    icon: <IconFileBroken className="h-4 w-4 text-neutral-500" />,
-  },
-  {
-    title: "Contextual Suggestions",
-    description: (
-      <span className="text-sm">
-        Get AI-powered suggestions based on your writing context.
+        I am into coding real world problems and participate into Hackathons
       </span>
     ),
     header: <SkeletonThree />,
@@ -329,26 +223,15 @@ const items = [
     icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
   },
   {
-    title: "Sentiment Analysis",
+    title: "Innovative AI Ventures",
     description: (
       <span className="text-sm">
-        Understand the sentiment of your text with AI analysis.
+        I dive into the realms of AI to craft cutting-edge solutions that are as mind-bending as they are ingenious.
       </span>
     ),
     header: <SkeletonFour />,
     className: "md:col-span-2",
     icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
   },
-
-  {
-    title: "Text Summarization",
-    description: (
-      <span className="text-sm">
-        Summarize your lengthy documents with AI technology.
-      </span>
-    ),
-    header: <SkeletonFive />,
-    className: "md:col-span-1",
-    icon: <IconBoxAlignRightFilled className="h-4 w-4 text-neutral-500" />,
-  },
+  
 ];

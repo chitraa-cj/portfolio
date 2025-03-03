@@ -1,0 +1,56 @@
+.moving-technologies {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    background-color: #111; /* Dark background */
+    padding: 20px 0;
+  }
+  
+  .marquee {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .track {
+    display: flex;
+    gap: 30px;
+    animation: marqueeAnimation 15s linear infinite;
+    min-width: 200%; /* Makes it long enough for seamless scrolling */
+  }
+  
+  .tech-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #222;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    min-width: 120px; /* Set a fixed width */
+    text-align: center;
+  }
+  
+  .tech-icon {
+    font-size: 2.5rem;
+    color: #fff;
+  }
+  
+  .tech-name {
+    font-size: 14px;
+    color: #ccc;
+    margin-top: 5px;
+  }
+  
+  /* Animation */
+  @keyframes marqueeAnimation {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  

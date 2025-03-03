@@ -1,11 +1,12 @@
 import { SparklesPreview } from "../../components/ui/header/demo";
-import { ExpandableCardDemo } from "../../components/ui/music/demo";
+
+import { TabsDemo } from "../../components/ui/cards/demo";
 const Hobbies = () => {
     return (
         <div>
             <SparklesPreview name="Hobbies"/>
-
-            <ExpandableCardDemo/>
+            <TabsDemo/>
+            
         </div>
     );
 };

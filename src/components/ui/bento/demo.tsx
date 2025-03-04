@@ -204,7 +204,7 @@ const items = [
     title: "Data Science and AI Researcher",
     description: (
       <span className="text-sm">
-         10+ confernces, won best paper award in 2 and Published 1 journal and 3 Book Chapter in AI, Blockchain, Cyber Security ML and DL domain.
+         10+ Conferences, won best paper award in 2, 1 journal and 3 Book Chapter in AI, Blockchain, Cyber Security ML and DL domain.
       </span>
     ),
     header: <SkeletonOne />,
